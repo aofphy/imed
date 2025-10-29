@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development and Fine-Tuning of Multimodal Large Language Models for Diabetic Retinopathy Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+        }
+        /* Define the poster's aspect ratio */
+        .poster-container {
+            width: 100%;
+            max-width: 800px; /* Base width for desktop viewing */
+            aspect-ratio: 80 / 140;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        /* Ensure responsive scaling */
+        @media (max-width: 800px) {
+            .poster-container {
+                width: 95%;
+                margin: 1rem auto;
+            }
+        }
+        .section-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+
+    <!-- Poster Container with aspect ratio --><div class="poster-container bg-white flex flex-col rounded-2xl overflow-hidden">
+        
+        <!-- Header Section --><header class="bg-gradient-to-br from-teal-600 to-sky-700 text-white p-6 md:p-10 text-center rounded-b-xl shadow-lg">
+            <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">Development and Fine-Tuning of Multimodal Large Language Models for Diabetic Retinopathy Analysis</h1>
+            <div class="mt-4 text-sm md:text-base">
+                <p class="font-semibold">Asst. Prof. Dr. Itthiphol Phongphaew, Dr. Panitarn Sriboonruang, Assoc. Prof. Dr. Panomsak Meemon, Juthaporn Asvasanant, M.D., Ph.D.</p>
+                <p class="mt-2 opacity-80">Suranaree University of Technology, Suranaree University of Technology Hospital</p>
+            </div>
+        </header>
+
+        <!-- Main Content --><main class="flex-grow p-4 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 overflow-y-auto">
+            
+            <!-- Column 1 --><div class="flex flex-col gap-4 md:gap-6">
+                <!-- 1. Introduction --><section class="section-card p-4 rounded-xl flex-grow">
+                    <h2 class="text-lg md:text-xl font-bold text-teal-700 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        1. Introduction
+                    </h2>
+                    <p class="text-xs md:text-sm mt-2 text-gray-700">
+                        Diabetic Retinopathy (DR) is a leading cause of blindness, affecting <strong>103+ million</strong> people globally. In Thailand, only <strong>45.5%</strong> of diabetic patients receive necessary screenings due to a shortage of ophthalmologists. This research evaluates general MLLMs and develops a specialized, fine-tuned model using MED-Gemma to improve DR diagnostic accuracy and accessibility.
+                    </p>
+                </section>
+
+                <!-- 2. Phase 1: Baseline Evaluation --><section class="section-card p-4 rounded-xl flex-[2]">
+                    <h2 class="text-lg md:text-xl font-bold text-sky-700">2. Phase 1: Baseline Evaluation of General MLLMs</h2>
+                    <div class="mt-2">
+                         <!-- Methods --><div class="mb-3">
+                            <h4 class="font-semibold text-sm md:text-base text-gray-800">Methods</h4>
+                            <p class="text-xs md:text-sm text-gray-700 mt-1">
+                                Ultra-widefield fundus images from patients seen at the University of California, San Diego, were graded for DR severity by 3 retina specialists using the ETDRS classification system to establish ground truth. Four MLLMs (ChatGPT-4o, Claude 3.5 Sonnet, Google Gemini 1.5 Pro, and Perplexity Llama 3.1 Sonar/Default) were tested using 4 distinct prompts. These assessed multiple-choice disease diagnosis, binary disease classification, and disease severity.
+                            </p>
+                        </div>
+
+                        <h3 class="font-semibold text-sm md:text-base text-gray-800">Results: Highly Variable & Unreliable</h3>
+                        
+                        <!-- Cohort Ground Truth Table --><div class="mt-2">
+                             <h4 class="font-semibold text-xs md:text-sm text-gray-800 mb-2">Cohort Ground Truth Disease Status & Severity (n=309 Eyes)</h4>
+                             <div class="overflow-x-auto rounded-lg border border-gray-200">
+                                <table class="w-full text-xs md:text-sm text-left">
+                                    <thead class="bg-sky-50 text-sky-800 font-semibold">
+                                        <tr>
+                                            <th class="p-2">Diagnosis</th>
+                                            <th class="p-2 text-center">Number of Eyes</th>
+                                            <th class="p-2 text-center">Percentage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white font-semibold">
+                                            <td class="p-2" colspan="3">Overall Status</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="p-2 pl-6">Diabetic Retinopathy (DR)</td>
+                                            <td class="p-2 text-center">217</td>
+                                            <td class="p-2 text-center">70.2%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                             <td class="p-2 pl-6">No DR</td>
+                                            <td class="p-2 text-center">92</td>
+                                            <td class="p-2 text-center">29.8%</td>
+                                        </tr>
+                                        <tr class="bg-white font-semibold">
+                                            <td class="p-2" colspan="3">Severity Breakdown</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 pl-6">Mild NPDR</td>
+                                            <td class="p-2 text-center">89</td>
+                                            <td class="p-2 text-center">28.8%</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="p-2 pl-6">Moderate NPDR</td>
+                                            <td class="p-2 text-center">83</td>
+                                            <td class="p-2 text-center">26.9%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 pl-6">Severe NPDR</td>
+                                            <td class="p-2 text-center">4</td>
+                                            <td class="p-2 text-center">1.3%</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="p-2 pl-6">Early PDR</td>
+                                            <td class="p-2 text-center">22</td>
+                                            <td class="p-2 text-center">7.1%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 pl-6">High-risk PDR</td>
+                                            <td class="p-2 text-center">19</td>
+                                            <td class="p-2 text-center">6.1%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Results Table 1 --><div class="mt-3">
+                            <h4 class="font-semibold text-xs md:text-sm text-gray-800 mb-2">Binary Classification Performance (DR vs. No DR)</h4>
+                            <div class="overflow-x-auto rounded-lg border border-gray-200">
+                                <table class="w-full text-xs md:text-sm text-left">
+                                    <thead class="bg-sky-50 text-sky-800 font-semibold">
+                                        <tr>
+                                            <th class="p-2">Model</th>
+                                            <th class="p-2 text-center">Accuracy</th>
+                                            <th class="p-2 text-center">Sensitivity</th>
+                                            <th class="p-2 text-center">Specificity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white">
+                                            <td class="p-2 font-medium">ChatGPT 4o</td>
+                                            <td class="p-2 text-center font-bold text-sky-700">64.4%</td>
+                                            <td class="p-2 text-center text-red-700">53.9%</td>
+                                            <td class="p-2 text-center">89.1%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 font-medium">Perplexity Llama</td>
+                                            <td class="p-2 text-center font-bold text-sky-700">60.2%</td>
+                                            <td class="p-2 text-center text-red-700">48.8%</td>
+                                            <td class="p-2 text-center">87.0%</td>
+                                        </tr>
+                                         <tr class="bg-white">
+                                            <td class="p-2 font-medium">Claude Sonnet 3.5</td>
+                                            <td class="p-2 text-center">41.7%</td>
+                                            <td class="p-2 text-center text-red-700">17.9%</td>
+                                            <td class="p-2 text-center">97.8%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 font-medium">Gemini 1.5 Pro</td>
+                                            <td class="p-2 text-center">32.4%</td>
+                                            <td class="p-2 text-center text-red-700">4.2%</td>
+                                            <td class="p-2 text-center">98.9%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Detailed Results Table 2 --><div class="mt-3">
+                            <h4 class="font-semibold text-xs md:text-sm text-gray-800 mb-2">DR Severity Grading Performance (Prompt 3.1)</h4>
+                            <div class="overflow-x-auto rounded-lg border border-gray-200">
+                                <table class="w-full text-xs md:text-sm text-left">
+                                    <thead class="bg-sky-50 text-sky-800 font-semibold">
+                                        <tr>
+                                            <th class="p-2">Model</th>
+                                            <th class="p-2 text-center">Accuracy</th>
+                                            <th class="p-2 text-center">Sensitivity</th>
+                                            <th class="p-2 text-center">Specificity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="bg-white">
+                                            <td class="p-2 font-medium">Perplexity Llama</td>
+                                            <td class="p-2 text-center font-bold text-sky-700">41.1%</td>
+                                            <td class="p-2 text-center text-red-700">24.7%</td>
+                                            <td class="p-2 text-center">86.4%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 font-medium">ChatGPT 4o</td>
+                                            <td class="p-2 text-center font-bold text-sky-700">39.5%</td>
+                                            <td class="p-2 text-center text-red-700">22.9%</td>
+                                            <td class="p-2 text-center">86.6%</td>
+                                        </tr>
+                                        <tr class="bg-white">
+                                            <td class="p-2 font-medium">Gemini 1.5 Pro</td>
+                                            <td class="p-2 text-center">39.2%</td>
+                                            <td class="p-2 text-center text-red-700">22.4%</td>
+                                            <td class="p-2 text-center">85.8%</td>
+                                        </tr>
+                                        <tr class="bg-gray-50">
+                                            <td class="p-2 font-medium">Claude Sonnet 3.5</td>
+                                            <td class="p-2 text-center">31.4%</td>
+                                            <td class="p-2 text-center text-red-700">18.4%</td>
+                                            <td class="p-2 text-center">84.0%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 p-2 bg-red-50 border border-red-200 rounded-lg">
+                            <h4 class="font-bold text-sm md:text-base text-red-800">Conclusion (Phase 1)</h4>
+                            <p class="text-xs md:text-sm text-red-700">
+                                <strong>Results Summary:</strong> From 309 eyes, 70.2% had DR. For binary classification, ChatGPT had the highest accuracy (64.4%), but sensitivity was highly variable and low across models (4.2% to 53.9%), while specificity was high (87.0%-98.9%). For severity grading, accuracy was poor (highest 41.1% by Perplexity) with very low sensitivity.
+                                <br><br>
+                                <strong>Conclusion:</strong> While MLLMs show potential, their current diagnostic performance falls short of clinical standards for safe implementation in DR screening due to variability and low sensitivity.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Column 2 --><div class="flex flex-col gap-4 md:gap-6">
+                 <!-- 3. Phase 2: Fine-Tuning --><section class="section-card p-4 rounded-xl flex-[2]">
+                    <h2 class="text-lg md:text-xl font-bold text-emerald-700">3. Phase 2: Fine-Tuning with MED-Gemma</h2>
+                    <p class="text-xs md:text-sm text-gray-600 mt-2">To overcome baseline limitations, we specialized the Gemma model for the medical domain.</p>
+                    
+                    <div class="my-3 rounded-lg overflow-hidden border border-emerald-200">
+                        <img src="/Users/aof_mac/Documents/FF69/Gemini_Generated_Image_7ald7f7ald7f7ald.png" alt="Fine-tuning process diagram" class="w-full h-auto">
+                    </div>
+
+                    <div class="mt-3 text-center">
+                        <h3 class="font-bold text-sm md:text-base text-gray-800">Results & Improvement</h3>
+                         <div class="flex justify-around items-center mt-3 gap-4">
+                            <div class="p-3 bg-emerald-100 rounded-lg w-1/2">
+                                <p class="text-2xl md:text-3xl font-extrabold text-emerald-700">10-15% ▲</p>
+                                <p class="text-xs md:text-sm font-semibold text-emerald-600">Accuracy Increase</p>
+                                <p class="text-xs text-gray-500">gemma-3-12b-it</p>
+                            </div>
+                             <div class="p-3 bg-emerald-100 rounded-lg w-1/2">
+                                <p class="text-2xl md:text-3xl font-extrabold text-emerald-700">8% ▲</p>
+                                <p class="text-xs md:text-sm font-semibold text-emerald-600">Accuracy Increase</p>
+                                <p class="text-xs text-gray-500">gemma-3-4b-it</p>
+                            </div>
+                        </div>
+                        <p class="text-xs md:text-sm text-emerald-800 font-semibold mt-4 p-2 bg-emerald-50 rounded-md">Domain-specific fine-tuning is crucial for transforming general AI into effective clinical tools.</p>
+                    </div>
+                </section>
+                
+                <!-- 4. Application Prototype --><section class="section-card p-4 rounded-xl flex-grow">
+                    <h2 class="text-lg md:text-xl font-bold text-indigo-700">4. Application Prototype: cggV1medGemma.py</h2>
+                    <div class="mt-2 p-3 border-2 border-dashed border-indigo-200 rounded-lg bg-indigo-50">
+                        <div class="text-center font-semibold text-indigo-800 text-sm md:text-base">Clinical Decision Support UI</div>
+                        <!-- Mock UI --><div class="mt-2 space-y-2">
+                             <div class="flex items-center gap-2 p-2 bg-white rounded-md shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                                <span class="text-xs md:text-sm text-gray-600">Upload Patient's Fundus Image...</span>
+                            </div>
+                            <div class="p-2 bg-white rounded-md shadow-sm">
+                                <p class="text-xs font-bold text-gray-700">AI-Generated Report:</p>
+                                <p class="text-xs mt-1 text-gray-500"><strong>Description:</strong> Microaneurysms, hemorrhages noted...</p>
+                                <p class="text-xs mt-1 text-gray-500"><strong>Assessment:</strong> Moderate NPDR. Refer to specialist.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Conclusion & Future Work --><section class="section-card p-4 rounded-xl flex-grow">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-700">5. Overall Conclusion & Future Work</h2>
+                     <p class="text-xs md:text-sm mt-2 text-gray-600">Specialized fine-tuning significantly improves MLLM performance, creating a path towards reliable AI-powered tools to assist in the fight against diabetic blindness.</p>
+                     <p class="font-semibold text-sm md:text-base mt-2 text-gray-800">Next Steps:</p>
+                     <ul class="list-disc list-inside text-xs md:text-sm text-gray-700 mt-1 space-y-1">
+                        <li>Conduct larger-scale clinical validation.</li>
+                        <li>Integrate into telemedicine platforms for remote deployment.</li>
+                     </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer Section --><footer class="text-center p-3 md:p-4 bg-gray-100 border-t border-gray-200">
+            <p class="text-xs md:text-sm font-semibold text-gray-600">Acknowledgements</p>
+            <p class="text-[10px] md:text-xs text-gray-500 mt-1">
+                This research is supported by the Fundamental Fund (FF) for the fiscal year 2025, allocated from the Science, Research and Innovation Promotion Fund, Suranaree University of Technology.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
+
