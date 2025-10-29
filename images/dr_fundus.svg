@@ -1,0 +1,33 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diseased Retina (Left) -->
+  <g transform="translate(0,0)">
+    <circle cx="100" cy="200" r="90" fill="#FFA07A"/>
+    <circle cx="100" cy="200" r="30" fill="#FF6347"/>
+    <!-- Microaneurysms -->
+    <circle cx="70" cy="170" r="4" fill="#8B0000"/>
+    <circle cx="130" cy="190" r="4" fill="#8B0000"/>
+    <circle cx="85" cy="230" r="4" fill="#8B0000"/>
+    <circle cx="120" cy="220" r="4" fill="#8B0000"/>
+    <!-- Hemorrhages -->
+    <ellipse cx="90" cy="210" rx="6" ry="8" fill="#8B0000"/>
+    <ellipse cx="115" cy="195" rx="7" ry="6" fill="#8B0000"/>
+    <!-- Exudates -->
+    <circle cx="125" cy="235" r="5" fill="#FFD700"/>
+    <circle cx="75" cy="215" r="4" fill="#FFD700"/>
+    <text x="100" y="310" font-family="Arial" font-size="16" font-weight="bold" fill="#8B0000" text-anchor="middle">Diabetic Retinopathy</text>
+    <text x="100" y="330" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Microaneurysms, hemorrhages</text>
+  </g>
+
+  <!-- Healthy Retina (Right) -->
+  <g transform="translate(200,0)">
+    <circle cx="100" cy="200" r="90" fill="#FFB6C1"/>
+    <circle cx="100" cy="200" r="30" fill="#FF8C00"/>
+    <!-- Normal blood vessels -->
+    <line x1="70" y1="200" x2="40" y2="180" stroke="#DC143C" stroke-width="2"/>
+    <line x1="70" y1="200" x2="50" y2="220" stroke="#DC143C" stroke-width="2"/>
+    <line x1="130" y1="200" x2="160" y2="185" stroke="#DC143C" stroke-width="2"/>
+    <line x1="130" y1="200" x2="150" y2="215" stroke="#DC143C" stroke-width="2"/>
+    <text x="100" y="310" font-family="Arial" font-size="16" font-weight="bold" fill="#228B22" text-anchor="middle">Healthy Retina</text>
+    <text x="100" y="330" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">Normal vessels, no lesions</text>
+  </g>
+</svg>
